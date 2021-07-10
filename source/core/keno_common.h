@@ -13,10 +13,12 @@
 #include <fstream>  // For handling files.
 #include <sstream>  // For the stringstream.
 #include <iostream> // cout, cerr, endl
+using std::cout;
 #include <vector>   // vector
 #include <string>   // string
 #include <random>   // shuffle and random stuff
 #include <iomanip>  // setw, setfill
+#include <algorithm>
 
 namespace Keno
 {
@@ -25,6 +27,12 @@ namespace Keno
     using set_of_numbers_type = std::vector< number_type >;
 
     // TODO: add your stuff here
+
+    struct GameInput{
+        cash_type IC; // Player's initial credit.
+        number_type NR; // Number of rounds.
+        set_of_numbers_type spots;
+    };
 
 };
 

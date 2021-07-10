@@ -19,9 +19,11 @@ int main( int argc, char *argv[] )
         std::cout << "\n\n>>> ERROR. Please give a file as an argument.\n";
         return 1;
     }
+
     std::string fileAddress;
     float credits;
     int rounds;
+    std::vector<int> spots;
     std::stringstream (argv[1]) >> fileAddress;
     std::ifstream ifs_bet_file("../../data/" + fileAddress);
 
@@ -45,7 +47,7 @@ int main( int argc, char *argv[] )
             {
                 if (credits <= 0.f) {
                     std::ostringstream oss;
-                    oss << "\n\n>>> ERROR: Invalid wage value found at  [" << dataLine <<"], in your bet file ["<< fileAddress<<"]\n    Exiting...\n\n";
+                    oss << "\n\n>>> ERROR: Invalid wage value [" << dataLine <<"], in your bet file ["<< fileAddress<<"]\n    Exiting...\n\n";
                     std::cout << oss.str();
                     return 1;
                 }
@@ -65,11 +67,11 @@ int main( int argc, char *argv[] )
             {
                 if (rounds <= 0) {
                     std::ostringstream oss;
-                    oss << "\n\n>>> ERROR: Invalid number of rounds provided at entry [" << dataLine <<"], in your bet file ["<< fileAddress<<"]\n    Exiting...\n\n";
+                    oss << "\n\n>>> ERROR: Invalid number of rounds provided in your bet file ["<< fileAddress<<"]\n    Exiting...\n\n";
                     std::cout << oss.str();
                     return 1;
-                    inputOk = true;
                 }
+                inputOk = true;
             }
 
         }
@@ -77,31 +79,42 @@ int main( int argc, char *argv[] )
     }
 
     inputOk = false;
+    int value;
 
     while(not ifs_bet_file.eof() and not inputOk)
     {
         std::stringstream values ( dataLine );
         std::vector<std::string> valuesVectorString;
-        std::vector<int> valuesVectorInt;
         valuesVectorString.clear();
         valuesVectorString.insert( valuesVectorString.begin(),
             std::istream_iterator<std::string >( values ),
             std::istream_iterator<std::string>( ) );
         for (auto i = valuesVectorString.begin(); i != valuesVectorString.end(); i++) 
         {
-            valuesVectorInt.push_back(std::stoi((*i)));
+            value = std::stoi((*i));
+            if(value > 0 && value <= 80) {
+                spots.push_back(value);
+            }
         }
-        std::cout <<  valuesVectorInt.size() << "\n";
+        // std::cout <<  spots.size() << "\n"; // size
     
             
-        if (valuesVectorInt.size() != 0)
+        if (spots.size() != 0)
         { 
             inputOk = true;
+        } 
+        else 
+        {
+            std::getline (ifs_bet_file, dataLine);
         }
-        std::getline (ifs_bet_file, dataLine);
     }
-
-
+    
+    Keno::GameInput gi;
+    gi.IC = credits;
+    gi.NR = rounds;
+    std::copy(spots.begin(), spots.end(),
+              std::back_inserter(gi.spots));
+    // cout << spots.size() << " " << gi.spots.size();       
 
     return EXIT_SUCCESS;
 }
