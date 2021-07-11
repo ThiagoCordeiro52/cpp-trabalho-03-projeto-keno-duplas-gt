@@ -9,6 +9,8 @@
 #include <cstdlib> // EXIT_SUCCESS
 
 #include "keno_common.h"
+#include "keno_bet.h"
+#include "keno_game.h"
 #include <iterator>
 #include <sstream>
  
@@ -96,6 +98,7 @@ int main( int argc, char *argv[] )
                 spots.push_back(value);
             }
         }
+        std::sort(spots.begin(), spots.end()); // Sort spots.
         // std::cout <<  spots.size() << "\n"; // size
     
             
@@ -114,7 +117,10 @@ int main( int argc, char *argv[] )
     gi.NR = rounds;
     std::copy(spots.begin(), spots.end(),
               std::back_inserter(gi.spots));
-    // cout << spots.size() << " " << gi.spots.size();       
+    // cout << spots.size() << " " << gi.spots.size();
+
+    Keno::KenoGame game{gi}; // KenoGame constructor.
+    game.welcome_message();
 
     return EXIT_SUCCESS;
 }
