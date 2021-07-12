@@ -1,3 +1,11 @@
+/*!
+ *  This function implements the entry validation.
+ *
+ *  @author GT group
+ *  @file enter.cpp
+ *
+ */
+
 #include "keno_common.h"
 #include "enter.h"
 #include <iterator>

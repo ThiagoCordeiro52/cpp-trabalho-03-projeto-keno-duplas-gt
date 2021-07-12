@@ -1,22 +1,24 @@
 # Introduction
 
 <!-- TODO -->
-O presente projeto é uma implementação em formato de texto do jogo Keno. O Keno é um bem jogo popular que possui similariedade com uma loteria ou bingo. Nele, os jogadores fazem apostas: escolhem de um a vinte números, entre 1 e 80, inclusive. Após a seleção desses números, o Keno sorteia vinte números aleatórios novamente dentro da faixa: 1 a 80. 
+O presente projeto é uma implementação em formato de texto do jogo Keno. O Keno é um jogo de apostas popular que possui similaridade com uma loteria ou bingo. Nele, os jogadores fazem apostas e escolhem de um a vinte números entre 1 e 80, inclusive. Após a seleção desses números pelos jogadores, o Keno sorteia vinte números aleatórios dentro da faixa de 1 a 80. 
 
-Após isso, é feita uma comparação entre os números selecionaods pelos jogadores e os valores sorteados pelo Keno. Então,jogadores recebem um pagamento com base na quantidade de números que eles escolheram e são iguais aos valores que foram sorteados. 
+Após isso, é feita uma comparação entre os números selecionados pelos jogadores e os sorteados pelo Keno. Então, os jogadores recebem um pagamento com base na quantidade de números que eles escolheram que coincidiram com os sorteados. 
 
-Para conseguir jogar esta versão, é necessário que o usuário crie seu arquivo de aposta e o coloque dentro da pasta data com a extensão .dat. Nela, deve conter o valor a ser apostado (valor até $100000), a quantidade de rounds (rodadas a serem jogadas) e os valores selecionados (até 15 valores de 1 a 80).
+Para jogar esta versão, é necessário que o usuário crie seu arquivo de aposta e o coloque dentro da pasta "data" com a extensão ".dat". Nele, deve conter o valor a ser apostado (valor até 100000), a quantidade de rounds (rodadas a serem jogadas) e os números selecionados (até 15 números de 1 a 80).
 
 # Author(s)
 
 <!-- TODO -->
-Gregório Pinheiro Cunha e Thiago de Oliveira Cordeiro.
+Gregorio Pinheiro Cunha e Thiago de Oliveira Cordeiro.
 
 # Problems found or limitations
 
 <!-- TODO -->
 Lista aqui os problemas encontrados (se houve algum) e as
 possíveis limitações do programa.
+
+Não foram encontrados problemas ou limitações do programa.
 
 # Grading
 
@@ -31,7 +33,7 @@ Preencha os itens que você implementou.
 - [ X ] Displays correctly the information requested in Section 2.2 (15 credits).
 
 
-# Compiling and Runnig
+# Compiling and Running
 
 <!-- TODO -->
 Indique aqui como compilar e executar seu programa.
@@ -39,7 +41,7 @@ Indique aqui como compilar e executar seu programa.
 # Acesse a pasta source do projeto 
 $ cd source
 
-# Acesse a pasta source do projeto 
+# Acesse a pasta core do projeto 
 $ cd core
 
 # Compilar

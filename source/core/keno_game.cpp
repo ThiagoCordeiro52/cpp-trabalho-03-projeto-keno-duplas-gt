@@ -1,7 +1,7 @@
 /*!
  *  This program implements the Keno game.
  *
- *  @author
+ *  @author GT group
  *  @file keno_game.cpp
  *
  */
@@ -11,7 +11,7 @@
 
 namespace Keno {
 
-/// Prints out the welcoming message.
+//! Prints out the welcoming message.
 void KenoGame::welcome_message(void)
 {
     std::cout << "===================================================\n";
@@ -19,20 +19,20 @@ void KenoGame::welcome_message(void)
     std::cout << "---------------------------------------------------\n\n";
     std::cout << "We'll be processing your bet.\n\n";
     std::cout << "Good luck!\n";
-    std::cout << "----------------------------------------------------\n";
+    std::cout << "----------------------------------------------------\n\n";
 }
 
 //! Runs the game.
 void KenoGame::run_game(void)
 {
-    KenoBet bet;
+    KenoBet bet; // Creates the bet of KenoBet type.
+
+    /*Adds the spots to the bet.*/
     for (auto i = m_game_spots.begin(); i != m_game_spots.end(); ++i) {
         bet.add_spot(*i);
     }
-    bet.set_wage(m_credit/m_NR);
-    // m_game_spots.clear();
-    // m_game_spots = bet.get_spots();
-    // COLOCAR IF PRO WAGE: talvez
+
+    bet.set_wage(m_credit/m_NR);    // Sets the bet's wage.
 
     std::cout << "You are going to wage a total of $" << m_credit << ". \n";    // Prints total credits.
     std::cout << "Going for a total of " << m_NR << " rounds, waging $" << bet.get_wage() << " per round. \n\n"; // Prints number of rounds and wage per round.
@@ -51,10 +51,6 @@ void KenoGame::run_game(void)
     }
     std::cout << "\n";
 
-    // std::cout << "Please, hit enter for the next round.";
-    // getchar();
-
-
     Keno::set_of_numbers_type v;  // Declares a vector v to store numbers from 1 to 80.
     for(int i = 1; i <= 80; i++){ // Stores numbers 1 to 80 in vector v.
             v.push_back(i);       
@@ -72,7 +68,7 @@ void KenoGame::run_game(void)
     /*Loop for the number of rounds.*/
     for(auto n{1}; n <= m_NR; n++){
         
-        std::cout << "Please, hit enter for the next round.\n";
+        std::cout << ">>> Please, hit enter for the next round. <<<\n";
         getchar(); // Wait the player hits enter.
         
         m_draw.clear();
@@ -100,31 +96,32 @@ void KenoGame::run_game(void)
         for(auto i:bet.find_hits(m_draw)) std::cout << i << " ";  // Prints the hits.
         std::cout << "], a total of " << numOfHits << " hits out of " << bet.size() << ".\n"; // Prints the number of hits out of the total possible hits.
 
-        payout_rate = payout_table[bet.size()][numOfHits];
-        result_wage = payout_rate*bet.get_wage();
+        payout_rate = payout_table[bet.size()][numOfHits];  // Stores the payout rate in a variable.
+        result_wage = payout_rate*bet.get_wage();           // Calculates the resultant wage of the round.
+
         std::cout << "  Payout rate is " << payout_rate << ", thus you came out with: $" << result_wage << "\n\n";
 
-        // m_credit = m_credit - bet.get_wage() + result_wage;
-        net_balance += result_wage - bet.get_wage();
+        net_balance += result_wage - bet.get_wage(); // Calculates the player's net balance.
+
         std::cout << "  Your net balance so far is: $" << net_balance << "\n\n";
     }
+    
+    std::cout << "____________________________________________________________ \n\n";
+    std::cout << ">>> End of rounds! \n\n";
+    std::cout << "____________________________________________________________ \n\n";
 
-    std::cout << "  ____________________________________________________________ \n\n";
-    std::cout << "  End of rounds! \n\n";
-    std::cout << "  ____________________________________________________________ \n\n";
-
-    std::cout << "  ===== SUMARY =====\n"; 
-    std::cout << " You spent in this game a total of $" << m_credit << ".\n";
+    std::cout << "===== SUMARY =====\n"; 
+    std::cout << ">>> You spent in this game a total of $" << m_credit << ".\n";
 
     if(net_balance > m_credit){
-        std::cout << " Hooray, you won $" << (net_balance - m_credit) << ". See you next time! ;-)\n";
+        std::cout << ">>> Hooray, you won $" << (net_balance - m_credit) << ". See you next time! ;-)\n\n";
     }
     else if(net_balance < m_credit){
-        std::cout << " Too bad, you lost $" << (m_credit - net_balance) << ". Better luck next time.\n";
+        std::cout << ">>> Too bad, you lost $" << (m_credit - net_balance) << ". Better luck next time.\n\n";
     }
-    else std::cout << " Not a winner, but not a loser. You're ending with what you came. Come to play again another time.\n\n";
+    else std::cout << ">>> Not a winner, but not a loser. You're ending with what you came. Come to play again another time.\n\n";
 
-    std::cout << " You are leaving the Keno table with $" << net_balance << ".\n";
+    std::cout << ">>> You are leaving the Keno table with $" << net_balance << ".\n";
 }
 
 

@@ -5,7 +5,7 @@
 /*!
  *  Class that defines a Keno game.
  *
- *  @author
+ *  @author GT group
  *  @file keno_game.h
  */
 
