@@ -1,7 +1,11 @@
 # Introduction
 
 <!-- TODO -->
-O presente projeto é uma uma implementação mais simplista e sem utilização de interface gráfica do jogo 
+O presente projeto é uma implementação em formato de texto do jogo Keno. O Keno é um bem jogo popular que possui similariedade com uma loteria ou bingo. Nele, os jogadores fazem apostas: escolhem de um a vinte números, entre 1 e 80, inclusive. Após a seleção desses números, o Keno sorteia vinte números aleatórios novamente dentro da faixa: 1 a 80. 
+
+Após isso, é feita uma comparação entre os números selecionaods pelos jogadores e os valores sorteados pelo Keno. Então,jogadores recebem um pagamento com base na quantidade de números que eles escolheram e são iguais aos valores que foram sorteados. 
+
+Para conseguir jogar esta versão, é necessário que o usuário crie seu arquivo de aposta e o coloque dentro da pasta data com a extensão .dat. Nela, deve conter o valor a ser apostado (valor até $100000), a quantidade de rounds (rodadas a serem jogadas) e os valores selecionados (até 15 valores de 1 a 80).
 
 # Author(s)
 
@@ -31,3 +35,16 @@ Preencha os itens que você implementou.
 
 <!-- TODO -->
 Indique aqui como compilar e executar seu programa.
+```bash
+# Acesse a pasta source do projeto 
+$ cd source
+
+# Acesse a pasta source do projeto 
+$ cd core
+
+# Compilar
+$ g++ main.cpp keno_bet.cpp keno_game.cpp enter.cpp  -Wall -std=c++11 -o keno 
+
+# Execução (exemplo)
+$ ./keno bet_04.dat
+```
