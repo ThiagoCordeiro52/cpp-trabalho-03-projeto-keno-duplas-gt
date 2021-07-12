@@ -29,7 +29,7 @@ namespace Keno
             KenoGame(GameInput game_input){
                 m_credit = game_input.IC;
                 m_NR = game_input.NR;
-                m_spots = game_input.spots;
+                m_game_spots = game_input.spots;
             }
 
             //! Prints out the welcoming message.
@@ -39,7 +39,8 @@ namespace Keno
             void run_game(void);
 
         private:
-            Keno::set_of_numbers_type m_spots; //<! The player's bet, i.e.\ a set of numbers (aka spots).
+            Keno::set_of_numbers_type m_game_spots; //<! The player's bet, i.e.\ a set of numbers (aka spots).
+            Keno::set_of_numbers_type m_draw; //<! The set of numbers the game randomly generates; these numbers are unique, which means no repetition.
             Keno::cash_type m_credit;             //<! The player's credit.
             Keno::number_type m_NR;            //<! Number of rounds.
             float payout_table[15][16] = 
@@ -59,6 +60,7 @@ namespace Keno
                 {0, 0, 0, 0.5, 0.5, 2, 3, 5, 12, 50, 150, 500, 1000, 2000, 7500}, // line 14
                 {0, 0, 0, 0.5, 0.5, 1, 2, 5, 15, 50, 150, 300, 600, 1200, 2500, 10000} // line 15
             };
+        friend class KenoBet;
     };
 }
 

@@ -1,12 +1,12 @@
 # Introduction
 
 <!-- TODO -->
-Breve descrição do projeto.
+O presente projeto é uma uma implementação mais simplista e sem utilização de interface gráfica do jogo 
 
 # Author(s)
 
 <!-- TODO -->
-Indique o nome do autor ou dos autores.
+Gregório Pinheiro Cunha e Thiago de Oliveira Cordeiro.
 
 # Problems found or limitations
 
@@ -19,12 +19,12 @@ possíveis limitações do programa.
 <!-- TODO -->
 Preencha os itens que você implementou.
 
-- [ ] Receives input data via command line (5 credits);
-- [ ] Correctly handles the input bet file, treating both regular and problematic cases accordingly (20 credits);
-- [ ] Codes correctly the KenoBet class, according to the description provided in Code 1 (25 credits);
-- [ ] Executes correctly the amount of rounds defined in the input bet file (15 credits);
-- [ ] Identifies correctly the hits and the player’s payoff for every round (20 credits);
-- [ ] Displays correctly the information requested in Section 2.2 (15 credits).
+- [ X ] Receives input data via command line (5 credits);
+- [ X ] Correctly handles the input bet file, treating both regular and problematic cases accordingly (20 credits);
+- [ X ] Codes correctly the KenoBet class, according to the description provided in Code 1 (25 credits);
+- [ X ] Executes correctly the amount of rounds defined in the input bet file (15 credits);
+- [ X ] Identifies correctly the hits and the player’s payoff for every round (20 credits);
+- [ X ] Displays correctly the information requested in Section 2.2 (15 credits).
 
 
 # Compiling and Runnig

@@ -74,6 +74,8 @@ namespace Keno
 
             Keno::set_of_numbers_type m_spots; //<! The player's bet, i.e.\ a set of numbers (aka spots).
             Keno::cash_type m_wage;             //<! The player's wage
+        
+        friend class KenoGame;
     };
 }
 
